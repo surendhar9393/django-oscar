@@ -70,7 +70,7 @@ class AbstractSource(models.Model):
         'order.Order',
         on_delete=models.CASCADE,
         related_name='sources',
-        verbose_name=_("Order"))
+        verbose_name=_("Order"), null=True, blank=True)
     source_type = models.ForeignKey(
         'payment.SourceType',
         on_delete=models.CASCADE,
@@ -93,6 +93,8 @@ class AbstractSource(models.Model):
     # Reference number for this payment source.  This is often used to look up
     # a transaction model for a particular payment partner.
     reference = models.CharField(_("Reference"), max_length=255, blank=True)
+    
+    order_number = models.CharField(_("Wallet Reference"), max_length=50, blank=True)
 
     # A customer-friendly label for the source, eg XXXX-XXXX-XXXX-1234
     label = models.CharField(_("Label"), max_length=128, blank=True)
