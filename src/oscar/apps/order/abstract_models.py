@@ -396,7 +396,7 @@ class AbstractOrderNote(models.Model):
         'order.Order',
         on_delete=models.CASCADE,
         related_name="notes",
-        verbose_name=_("Order"))
+        verbose_name=_("Order"), null=True, blank=True)
 
     # These are sometimes programatically generated so don't need a
     # user everytime
@@ -409,6 +409,7 @@ class AbstractOrderNote(models.Model):
     # We allow notes to be classified although this isn't always needed
     INFO, WARNING, ERROR, SYSTEM = 'Info', 'Warning', 'Error', 'System'
     note_type = models.CharField(_("Note Type"), max_length=128, blank=True)
+    order_number = models.CharField(_("Wallet Reference Number "), max_length=60, blank=True)
 
     message = models.TextField(_("Message"))
     date_created = models.DateTimeField(_("Date Created"), auto_now_add=True)
