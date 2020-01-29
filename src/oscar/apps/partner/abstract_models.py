@@ -36,7 +36,7 @@ class AbstractPartner(models.Model):
         AUTH_USER_MODEL, related_name="partners",
         blank=True, verbose_name=_("Users"))
 
-    caption = models.CharField(_("Caption"), max_length=200, blank=False)
+    caption = models.CharField(_("Caption"), max_length=50, blank=False)
 
     product_classes = models.ManyToManyField(ProductClass, blank=True,
                                              null=True)
@@ -44,7 +44,8 @@ class AbstractPartner(models.Model):
     image = models.ImageField(
         _("Original"), upload_to=settings.OSCAR_IMAGE_FOLDER, max_length=255)
 
-    value_text = models.CharField(_("Additional Value"), blank=True, null=True)
+    value_text = models.CharField(_("Additional Value"), max_length=255,
+                                  blank=True, null=True)
 
     @property
     def display_name(self):
