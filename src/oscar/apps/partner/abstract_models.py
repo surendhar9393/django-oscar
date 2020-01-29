@@ -11,6 +11,7 @@ from oscar.apps.partner.exceptions import InvalidStockAdjustment
 from oscar.core.compat import AUTH_USER_MODEL
 from oscar.core.utils import get_default_currency
 from oscar.models.fields import AutoSlugField
+from oscar.apps.catalogue.models import ProductClass
 
 
 @python_2_unicode_compatible
@@ -33,6 +34,16 @@ class AbstractPartner(models.Model):
     users = models.ManyToManyField(
         AUTH_USER_MODEL, related_name="partners",
         blank=True, verbose_name=_("Users"))
+
+    caption = models.CharField(_("Caption"), max_length=200, blank=False)
+
+    product_classes = models.ManyToManyField(ProductClass, blank=True,
+                                             null=True)
+
+    image = models.ImageField(
+        _("Original"), upload_to=get_productclass_folder, max_length=255)
+
+    value_text = models.CharField(_("Additional Value"), blank=True, null=True)
 
     @property
     def display_name(self):

@@ -66,6 +66,13 @@ class AbstractProductClass(models.Model):
     options = models.ManyToManyField(
         'catalogue.Option', blank=True, verbose_name=_("Options"))
 
+    caption = models.CharField(_("Caption"), max_length=200, blank=True)
+
+    image = models.ImageField(
+        _("Original"), upload_to=settings.OSCAR_IMAGE_FOLDER, max_length=255)
+
+    is_active = models.BooleanField(default=True)
+
     class Meta:
         abstract = True
         app_label = 'catalogue'
