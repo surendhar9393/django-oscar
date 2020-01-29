@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models, router
 from django.db.models import F, Value, signals
 from django.db.models.functions import Coalesce
@@ -41,7 +42,7 @@ class AbstractPartner(models.Model):
                                              null=True)
 
     image = models.ImageField(
-        _("Original"), upload_to=get_productclass_folder, max_length=255)
+        _("Original"), upload_to=settings.OSCAR_IMAGE_FOLDER, max_length=255)
 
     value_text = models.CharField(_("Additional Value"), blank=True, null=True)
 
