@@ -68,8 +68,9 @@ class AbstractProductClass(models.Model):
 
     caption = models.CharField(_("Caption"), max_length=50, blank=True)
 
-    image = models.ImageField(
-        _("Original"), upload_to=settings.OSCAR_IMAGE_FOLDER, max_length=255)
+    image = models.ImageField(_("Original"),
+                              upload_to=settings.OSCAR_IMAGE_FOLDER,
+                              max_length=255, null=True, blank=True)
 
     is_active = models.BooleanField(default=True)
 
