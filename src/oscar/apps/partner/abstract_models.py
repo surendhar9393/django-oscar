@@ -38,8 +38,7 @@ class AbstractPartner(models.Model):
 
     caption = models.CharField(_("Caption"), max_length=50, blank=False)
 
-    product_classes = models.ManyToManyField(ProductClass, blank=True,
-                                             null=True)
+    product_classes = models.ManyToManyField(ProductClass, blank=True)
 
     image = models.ImageField(_("Original"),
                               upload_to=settings.OSCAR_IMAGE_FOLDER,
