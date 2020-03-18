@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='productclass',
             name='availability_role',
-            field=models.CharField(blank=True, null=True max_length=50, verbose_name='Caption'),
+            field=models.CharField(blank=True, null=True, max_length=50),
             preserve_default=False,
         ),
     ]
