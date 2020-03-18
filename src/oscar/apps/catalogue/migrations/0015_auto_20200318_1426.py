@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name='productclass',
+            model_name='product',
             name='availability_role',
             field=models.CharField(blank=True, null=True, max_length=50),
             preserve_default=False,
