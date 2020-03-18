@@ -73,6 +73,8 @@ class AbstractProductClass(models.Model):
                               max_length=255, null=True, blank=True)
 
     is_active = models.BooleanField(default=True)
+    
+    availability_role = models.CharField(_('Available For'), max_length=128)
 
     class Meta:
         abstract = True
