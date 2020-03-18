@@ -73,8 +73,6 @@ class AbstractProductClass(models.Model):
                               max_length=255, null=True, blank=True)
 
     is_active = models.BooleanField(default=True)
-    
-    availability_role = models.CharField(_('Available For'), max_length=128, null=True, blank=True)
 
     class Meta:
         abstract = True
@@ -362,6 +360,8 @@ class AbstractProduct(models.Model):
         _("Is discountable?"), default=True, help_text=_(
             "This flag indicates if this product can be used in an offer "
             "or not"))
+    
+    availability_role = models.CharField(_('Available For'), max_length=128, null=True, blank=True)
 
     objects = ProductManager()
     browsable = BrowsableProductManager()
