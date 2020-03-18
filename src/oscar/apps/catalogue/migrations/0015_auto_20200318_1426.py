@@ -21,6 +21,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='product',
             name='product_class',
-            field=models.ForeignKey(verbose_name='Product type', on_delete=django.db.models.deletion.PROTECT, related_name='products', help_text='Choose what type of product this is', to='catalogue.ProductClass', null=True, blank=True),
+            field=models.ForeignKey(verbose_name='Product type', related_name='products', help_text='Choose what type of product this is', to='catalogue.ProductClass', null=True, blank=True),
         ),
     ]
