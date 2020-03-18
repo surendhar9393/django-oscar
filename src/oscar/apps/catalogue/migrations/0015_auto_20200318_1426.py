@@ -18,9 +18,4 @@ class Migration(migrations.Migration):
             field=models.CharField(blank=True, null=True, max_length=50),
             preserve_default=False,
         ),
-        migrations.AlterField(
-            model_name='product',
-            name='product_class',
-            field=models.ForeignKey(verbose_name='Product type', related_name='products', help_text='Choose what type of product this is', to='catalogue.ProductClass', null=True, blank=True),
-        ),
     ]
