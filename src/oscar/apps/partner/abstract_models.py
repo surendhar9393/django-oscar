@@ -154,6 +154,13 @@ class AbstractStockRecord(models.Model):
     #: variable to a new value and reset num_allocated to zero
     num_allocated = models.IntegerField(
         _("Number allocated"), blank=True, null=True)
+    
+    max_qty = models.IntegerField(
+        _("Max. Qty for a customer"), blank=True, null=True)
+    
+    delivery_charge = models.DecimalField(
+        _("Delivery Charge"), decimal_places=2, max_digits=12,
+        blank=True, null=True)
 
     #: Threshold for low-stock alerts.  When stock goes beneath this threshold,
     #: an alert is triggered so warehouse managers can order more.
