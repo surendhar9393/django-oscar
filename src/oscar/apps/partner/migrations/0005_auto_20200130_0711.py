@@ -34,4 +34,14 @@ class Migration(migrations.Migration):
             name='value_text',
             field=models.CharField(blank=True, max_length=255, null=True, verbose_name='Additional Value'),
         ),
+        migrations.AddField(
+            model_name='stockrecord',
+            name='delivery_charge',
+            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True, verbose_name='Delivery Charge'),
+        ),
+        migrations.AddField(
+            model_name='stockrecord',
+            name='max_qty',
+            field=models.IntegerField(blank=True, null=True, verbose_name='Max. Qty for a customer'),
+        ),
     ]
