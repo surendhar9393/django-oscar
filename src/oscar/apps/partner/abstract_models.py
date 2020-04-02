@@ -121,7 +121,7 @@ class AbstractStockRecord(models.Model):
     #: See also http://en.wikipedia.org/wiki/Stock-keeping_unit
     partner_sku = models.CharField(_("Partner SKU"), max_length=128)
     
-    uom = models.CharField(_("Unit of Measure"), max_length=128)
+    uom = models.CharField(_("Unit of Measure"), max_length=128, null=True, blank=True)
 
     # Price info:
     price_currency = models.CharField(
