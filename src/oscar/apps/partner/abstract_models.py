@@ -120,6 +120,8 @@ class AbstractStockRecord(models.Model):
     #: but not always.  It should be unique per partner.
     #: See also http://en.wikipedia.org/wiki/Stock-keeping_unit
     partner_sku = models.CharField(_("Partner SKU"), max_length=128)
+    
+    uom = models.CharField(_("Unit of Measure"), max_length=128)
 
     # Price info:
     price_currency = models.CharField(
