@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='stockrecord',
             name='uom',
-            field=models.CharField(blank=True, max_length=255, null=True, verbose_name='Unit of Measure'),
+            field=models.CharField(blank=True, max_length=128, null=True, verbose_name='Unit of Measure'),
         ),
     ]
