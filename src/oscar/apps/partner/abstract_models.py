@@ -150,6 +150,8 @@ class AbstractStockRecord(models.Model):
     #: Number of items in stock
     num_in_stock = models.PositiveIntegerField(
         _("Number in stock"), blank=True, null=True)
+    
+    pack_of = models.IntegerField(_("Pack of"), default=1)
 
     #: The amount of stock allocated to orders but not fed back to the master
     #: stock system.  A typical stock update process will set the num_in_stock
