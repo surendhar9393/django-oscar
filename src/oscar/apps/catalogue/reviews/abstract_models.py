@@ -26,6 +26,9 @@ class AbstractProductReview(models.Model):
     product = models.ForeignKey(
         'catalogue.Product', related_name='reviews', null=True,
         on_delete=models.CASCADE)
+    
+    line = models.ForeignKey(
+        'order.OrderLine', on_delete=models.PROTECT, null=True, blank=True)
 
     # Scores are between 0 and 5
     SCORE_CHOICES = tuple([(x, x) for x in range(0, 6)])
@@ -77,7 +80,7 @@ class AbstractProductReview(models.Model):
         abstract = True
         app_label = 'reviews'
         ordering = ['-delta_votes', 'id']
-        unique_together = (('product', 'user'),)
+        unique_together = (('product', 'user', 'line'),)
         verbose_name = _('Product review')
         verbose_name_plural = _('Product reviews')
 
