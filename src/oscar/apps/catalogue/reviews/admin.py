@@ -9,7 +9,10 @@ Vote = get_model('reviews', 'Vote')
 class ProductReviewAdmin(admin.ModelAdmin):
     list_display = ('product', 'title', 'score', 'status', 'total_votes',
                     'delta_votes', 'date_created')
-    readonly_fields = ('total_votes', 'delta_votes')
+
+    def get_readonly_fields(self, request, obj=None):
+        read_only_fields = [f.name for f in self.model._meta.fields]
+        return read_only_fields
 
 
 class VoteAdmin(admin.ModelAdmin):
