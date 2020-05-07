@@ -18,7 +18,7 @@ class StockRecordAdmin(admin.ModelAdmin):
     
 
 class PartnerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'users', 'caption', 'product_classes', 'image', 'value_text')
+    list_display = ('name', 'caption', 'product_classes', 'image', 'value_text')
     inlines = [PartnerTaxInformationInline]
 
 
